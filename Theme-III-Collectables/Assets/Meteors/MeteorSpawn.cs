@@ -14,7 +14,7 @@ public class MeteorSpawn : MonoBehaviour
     void Start()
     {
         timer = 1;
-        meteorTimer = 3;
+        meteorTimer = 4;
     }
 
     // Update is called once per frame

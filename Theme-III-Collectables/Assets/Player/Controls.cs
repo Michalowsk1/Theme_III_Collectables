@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Controls : MonoBehaviour
@@ -11,6 +12,7 @@ public class Controls : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField] Rigidbody2D Ship;
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject ChargeBullet;
     [SerializeField] GameObject gameOver;
     [SerializeField] TextMeshProUGUI scoreText;
     [Header("Movement")]
@@ -22,10 +24,12 @@ public class Controls : MonoBehaviour
     public Transform bulletSpawn;
     public bool isplaying;
     public bool canShoot = true;
+    public static int upgrade = 0;
     [Header("Overheating")]
     [SerializeField] GameObject FillBar;
     public float incValue = 0.05f;
     public float decValue = 0.05f;
+    public Button butt;
     //Start is called before the first frame update
     void Start()
     {
@@ -43,22 +47,33 @@ public class Controls : MonoBehaviour
         scoreText.text =  "Score: " + score.ToString(); 
 
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Ship.velocity = new Vector2(moveHorizontal * horSpeed, moveVertical * verSpeed);
-
+        Ship.velocity = new Vector2(moveHorizontal * horSpeed, 0);
+        //float moveVertical = Input.GetAxis("Vertical");
         if (Input.GetKeyDown(KeyCode.Space) && canShoot == true)
         {
-            Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
-            
+            {
+                if (Input.GetKeyDown(KeyCode.Space) && upgrade == 0)        //spawn normal bullet without upgrade
+                {
+                    Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
+
+                }
+
+                else if (Input.GetKeyDown(KeyCode.Space) && upgrade == 1)  //spawns upgraded chargebullet if uprgaded
+                {
+                    Instantiate(ChargeBullet, bulletSpawn.position, Quaternion.identity);
+                }
+            }
         }
 
         if (isplaying)
         {
-            scoreCounter();
-        }
+          scoreCounter();
+                }
         else { }
+            
+        
 
+        
     }
 
 
@@ -106,6 +121,13 @@ public class Controls : MonoBehaviour
             gameOver.SetActive(true);
             isplaying = false;
         }
+    }
+
+    public bool UpgradeCheck()
+    {
+        if (upgrade == 0)
+            return false;
+        else return true;
     }
 
     IEnumerator decHeating()

@@ -11,5 +11,15 @@ public class remove : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Superbullet")
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Meteor")
+        {
+            Destroy(gameObject);
+        }
     }
 }
