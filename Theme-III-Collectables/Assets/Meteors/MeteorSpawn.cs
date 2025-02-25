@@ -7,7 +7,7 @@ public class MeteorSpawn : MonoBehaviour
     [SerializeField] GameObject[] meteors;
     //[SerializeField] GameObject[] meteors1;
     public float timer;
-    public int meteorTimer;
+    public static int meteorTimer;
     Vector2 leftSpawn;
     Vector2 rightSpawn;
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class MeteorSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leftSpawn = new Vector2( Random.Range(-7, 0), Random.Range(6,10));
+        leftSpawn = new Vector2( Random.Range(-6, 0), Random.Range(6,10));
         rightSpawn = new Vector2( Random.Range(0, 7), Random.Range(6,10));
 
         if(timer > 0 )
