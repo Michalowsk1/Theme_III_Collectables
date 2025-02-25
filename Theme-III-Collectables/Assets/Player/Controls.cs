@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
@@ -9,22 +11,27 @@ public class Controls : MonoBehaviour
     [SerializeField] Rigidbody2D Ship;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject gameOver;
+    [SerializeField] TextMeshProUGUI scoreText;
     public int horSpeed;
     public int verSpeed;
+    public int score;
     public Transform bulletSpawn;
-
-     //Start is called before the first frame update
+    public bool isplaying;
+    //Start is called before the first frame update
     void Start()
     {
         Ship = GetComponent<Rigidbody2D>();
         gameOver.SetActive(false);
-        horSpeed = 4;
-        verSpeed = 2;
+        score = 0;
+        horSpeed = 4;   verSpeed = 2;
+        isplaying = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        scoreText.text = score.ToString(); 
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -36,6 +43,11 @@ public class Controls : MonoBehaviour
             
         }
 
+        if (isplaying)
+        {
+            score = score + 1;
+        }
+        else  score = score + 0;
 
     }
 
@@ -45,6 +57,7 @@ public class Controls : MonoBehaviour
         {
             Time.timeScale = 0;
             gameOver.SetActive(true);
+            isplaying = false;
         }
     }
 }
