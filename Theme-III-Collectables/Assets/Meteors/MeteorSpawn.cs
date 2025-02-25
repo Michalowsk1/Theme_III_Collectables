@@ -5,9 +5,11 @@ using UnityEngine;
 public class MeteorSpawn : MonoBehaviour
 {
     [SerializeField] GameObject[] meteors;
+    //[SerializeField] GameObject[] meteors1;
     public float timer;
     public int meteorTimer;
-    Vector2 spawn;
+    Vector2 leftSpawn;
+    Vector2 rightSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,8 @@ public class MeteorSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawn = new Vector2( Random.Range(-7, 7), Random.Range(6,8));
+        leftSpawn = new Vector2( Random.Range(-7, 0), Random.Range(6,10));
+        rightSpawn = new Vector2( Random.Range(0, 7), Random.Range(6,10));
 
         if(timer > 0 )
         {
@@ -28,9 +31,12 @@ public class MeteorSpawn : MonoBehaviour
         else
         {
             int meteor = Random.Range(0,meteors.Length);
-            Instantiate(meteors[meteor], spawn, Quaternion.identity);
+            int meteor1 = Random.Range(0,meteors.Length);
 
-            timer = Random.Range(1, meteorTimer);
+            Instantiate(meteors[meteor], leftSpawn, Quaternion.identity);
+            Instantiate(meteors[meteor1], rightSpawn, Quaternion.identity);
+
+            timer = Random.Range(0.5f, meteorTimer);
         }
     }
 }
