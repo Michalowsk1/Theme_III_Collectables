@@ -347,11 +347,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 178455839}
+  purchaseText: {fileID: 1423114104}
   Item: {fileID: 1152734155}
   ChargeBullet: {fileID: 6278047903562063537, guid: eb63d6a94fb1e4448b841c83b5674b7c, type: 3}
-  count: 0
   purchase: {fileID: 82631458}
-  spawn: {fileID: 722045358}
 --- !u!1 &106688176
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +431,7 @@ GameObject:
   - component: {fileID: 169616105}
   - component: {fileID: 169616104}
   - component: {fileID: 169616103}
+  - component: {fileID: 169616106}
   m_Layer: 5
   m_Name: PurchaseWeapon
   m_TagString: Untagged
@@ -502,7 +502,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 82631459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 169616106}
+        m_TargetAssemblyTypeName: GasPipe, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &169616104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +553,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169616101}
   m_CullTransparentMesh: 1
+--- !u!114 &169616106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169616101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4430d1d98f15c43ab61587056176cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 1400078912}
+  purchaseText: {fileID: 532145653}
+  purchase: {fileID: 169616103}
 --- !u!1 &178455837
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +580,7 @@ GameObject:
   - component: {fileID: 178455840}
   - component: {fileID: 178455839}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: countText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -932,7 +959,6 @@ GameObject:
   m_Component:
   - component: {fileID: 296972150}
   - component: {fileID: 296972149}
-  - component: {fileID: 296972151}
   m_Layer: 0
   m_Name: Meteors
   m_TagString: Untagged
@@ -967,24 +993,12 @@ Transform:
   m_GameObject: {fileID: 296972148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.33, y: 4.89, z: -0.0056676674}
+  m_LocalPosition: {x: -2.33, y: 4.89, z: 1}
   m_LocalScale: {x: 0.82, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &296972151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296972148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b6fc1a872cd9547b6ca8ad6a4aeeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &368997072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,7 +1394,7 @@ GameObject:
   - component: {fileID: 546945190}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1446,7 +1460,7 @@ Transform:
   m_GameObject: {fileID: 546945185}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00999999, z: 0}
+  m_LocalPosition: {x: 0, y: 0.00999999, z: 1}
   m_LocalScale: {x: 0.15147, y: 0.15147, z: 0.15147}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1480,7 +1494,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!114 &546945189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,16 +1512,11 @@ MonoBehaviour:
   ChargeBullet: {fileID: 6278047903562063537, guid: eb63d6a94fb1e4448b841c83b5674b7c, type: 3}
   gameOver: {fileID: 1863447680}
   scoreText: {fileID: 241378521}
-  horSpeed: 0
-  verSpeed: 0
   score: 0
   bulletSpawn: {fileID: 722045358}
   isplaying: 0
   canShoot: 1
   FillBar: {fileID: 368997072}
-  incValue: 0.05
-  decValue: 0.05
-  butt: {fileID: 0}
 --- !u!70 &546945190
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1568,7 +1577,7 @@ Transform:
   m_GameObject: {fileID: 554178602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.31, y: -4, z: 0}
+  m_LocalPosition: {x: -2.31, y: -3.49, z: 0}
   m_LocalScale: {x: 0.82, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1736,7 +1745,7 @@ Transform:
   m_GameObject: {fileID: 695930210}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.31, y: 0, z: -0.086131096}
+  m_LocalPosition: {x: -2.31, y: 0, z: 1}
   m_LocalScale: {x: 0.82, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1771,7 +1780,7 @@ Transform:
   m_GameObject: {fileID: 722045357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.63808, z: 0}
+  m_LocalPosition: {x: 0, y: 9.1, z: 0}
   m_LocalScale: {x: 6.601967, y: 6.601967, z: 6.601967}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2201,7 +2210,7 @@ GameObject:
   - component: {fileID: 1400078913}
   - component: {fileID: 1400078912}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: countText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2459,37 +2468,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423114102}
   m_CullTransparentMesh: 1
---- !u!1 &1576754295
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1576754296}
-  m_Layer: 0
-  m_Name: Collectables
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1576754296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576754295}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 340.46863, y: 223.55443, z: -2.2103086}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594763583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,7 +2517,7 @@ GameObject:
   - component: {fileID: 1786824584}
   - component: {fileID: 1786824583}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: countText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2989,6 +2967,7 @@ GameObject:
   - component: {fileID: 1832545861}
   - component: {fileID: 1832545860}
   - component: {fileID: 1832545859}
+  - component: {fileID: 1832545862}
   m_Layer: 5
   m_Name: PurchaseWeapon
   m_TagString: Untagged
@@ -3059,7 +3038,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 82631459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1832545862}
+        m_TargetAssemblyTypeName: fuelTank, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1832545860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3098,6 +3089,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832545857}
   m_CullTransparentMesh: 1
+--- !u!114 &1832545862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832545857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d60c5d439e18d24c9cd4c5700bec156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 1786824583}
+  purchaseText: {fileID: 559425525}
+  purchase: {fileID: 1832545859}
 --- !u!1 &1862194755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,7 +3196,7 @@ Transform:
   m_GameObject: {fileID: 1862194755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.31, y: 0, z: 0}
+  m_LocalPosition: {x: -2.31, y: 0, z: 1}
   m_LocalScale: {x: 13.94, y: 11, z: 10.793}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3602,7 +3608,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9.689021, y: -8.4702215}
+  m_Offset: {x: 9.88323, y: -8.4702215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3613,7 +3619,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4065266, y: 10.976225}
+  m_Size: {x: 2.0181084, y: 10.976225}
   m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3626,4 +3632,3 @@ SceneRoots:
   - {fileID: 695930211}
   - {fileID: 1799210566}
   - {fileID: 106688179}
-  - {fileID: 1576754296}

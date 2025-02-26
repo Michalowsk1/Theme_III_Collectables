@@ -21,5 +21,9 @@ public class remove : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(collision.gameObject.tag == "Screwdriver" || collision.gameObject.tag == "Fuel" || collision.gameObject.tag == "Gas")
+        {
+            Destroy(gameObject);
+        }
     }
 }

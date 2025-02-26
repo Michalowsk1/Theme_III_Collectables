@@ -8,6 +8,9 @@ TagManager:
   - Bullet
   - Remove
   - Superbullet
+  - Fuel
+  - Gas
+  - Screwdriver
   layers:
   - Default
   - TransparentFX

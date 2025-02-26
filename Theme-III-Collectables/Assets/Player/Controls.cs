@@ -15,9 +15,10 @@ public class Controls : MonoBehaviour
     [SerializeField] GameObject ChargeBullet;
     [SerializeField] GameObject gameOver;
     [SerializeField] TextMeshProUGUI scoreText;
+
     [Header("Movement")]
-    public int horSpeed;
-    public int verSpeed;
+    public static int horSpeed;
+
     [Header("Shooting")]
     public int score;
     float timer;
@@ -25,18 +26,18 @@ public class Controls : MonoBehaviour
     public bool isplaying;
     public bool canShoot = true;
     public static int upgrade = 0;
+
     [Header("Overheating")]
     [SerializeField] GameObject FillBar;
-    public float incValue = 0.05f;
-    public float decValue = 0.05f;
-    public Button butt;
+    public static float incValue = 0.05f;
+    public static float decValue = 0.05f;
     //Start is called before the first frame update
     void Start()
     {
         Ship = GetComponent<Rigidbody2D>();
         gameOver.SetActive(false);
         score = 0;
-        horSpeed = 4;   verSpeed = 3;
+        horSpeed = 4;
         isplaying = true;
     }
 
@@ -121,6 +122,22 @@ public class Controls : MonoBehaviour
             gameOver.SetActive(true);
             isplaying = false;
         }
+
+        if (collision.gameObject.tag == "Screwdriver")
+        {
+            Screwdriver.count++;
+        }
+
+        if (collision.gameObject.tag == "Fuel")
+        {
+            fuelTank.count++;
+        }
+
+        if (collision.gameObject.tag == "Gas")
+        {
+            GasPipe.count++;
+        }
+
     }
 
     public bool UpgradeCheck()
