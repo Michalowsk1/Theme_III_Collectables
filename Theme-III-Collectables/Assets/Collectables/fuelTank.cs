@@ -8,11 +8,14 @@ public class fuelTank : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI countText;
     [SerializeField] TextMeshProUGUI purchaseText;
+    [SerializeField] GameObject soldOutText;
+    public AudioSource purchased;
     public static int count;
     public Button purchase;
     // Start is called before the first frame update
     void Start()
     {
+        soldOutText.SetActive(false);
         count = 0;
         purchase.enabled = false;
     }
@@ -30,6 +33,8 @@ public class fuelTank : MonoBehaviour
 
     public void Purchase()
     {
+        purchased.Play();
+        soldOutText.SetActive(true);
         Controls.horSpeed = 6;
         purchase.enabled = false;
         purchaseText.text = "Purchased";

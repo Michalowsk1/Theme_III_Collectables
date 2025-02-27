@@ -8,11 +8,14 @@ public class GasPipe : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI countText;
     [SerializeField] TextMeshProUGUI purchaseText;
+    [SerializeField] GameObject soldOutText;
+    public AudioSource purchased;
     public static int count;
     public Button purchase;
     // Start is called before the first frame update
     void Start()
     {
+        soldOutText.SetActive(false);
         count = 0;
         purchase.enabled = false;
     }
@@ -30,6 +33,8 @@ public class GasPipe : MonoBehaviour
 
     public void Purchase()
     {
+        purchased.Play();
+        soldOutText.SetActive(true);
         Controls.incValue = 0.025f;
         Controls.decValue = 0.1f;
         purchase.enabled = false;

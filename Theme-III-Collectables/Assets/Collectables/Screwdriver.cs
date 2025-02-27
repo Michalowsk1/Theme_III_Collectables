@@ -8,13 +8,16 @@ public class Screwdriver : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI countText;
     [SerializeField] TextMeshProUGUI purchaseText;
+    [SerializeField] GameObject soldOutText;
     [SerializeField] GameObject Item;
     [SerializeField] GameObject ChargeBullet;
+    public AudioSource purchased;
     public static int count;
     public Button purchase;
     // Start is called before the first frame update
     void Start()
     {
+        soldOutText.SetActive(false);
         count = 0;
         purchase.enabled = false;
         Item.SetActive(false);
@@ -32,6 +35,8 @@ public class Screwdriver : MonoBehaviour
     }
     public void Purchase()
     {
+        purchased.Play();
+        soldOutText.SetActive(true);
         Item.SetActive(true);
         Controls.upgrade = 1;
         purchase.enabled = false;

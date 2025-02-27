@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4771101659562936006}
   - component: {fileID: 2769872932704463283}
   - component: {fileID: -6958071038140144912}
-  - component: {fileID: -1760775742176983537}
+  - component: {fileID: 9018240644794383656}
   m_Layer: 0
   m_Name: New Piskel-1.png
   m_TagString: Meteor
@@ -176,15 +176,12 @@ MonoBehaviour:
   - {fileID: 2262635777344236005, guid: 9865e43db0f564b44bbcb7468e998c4c, type: 3}
   - {fileID: 8659211582566557748, guid: 9d0502abba4992b4f82f8c8ec3501bdc, type: 3}
   - {fileID: 343420588732654121, guid: 1120d6f51ca69ab4780984d9695e96c6, type: 3}
---- !u!114 &-1760775742176983537
-MonoBehaviour:
+  explosion: {fileID: 0}
+--- !u!81 &9018240644794383656
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3856148075203935973}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6958be2b3a175e4ca6ff69144532d05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

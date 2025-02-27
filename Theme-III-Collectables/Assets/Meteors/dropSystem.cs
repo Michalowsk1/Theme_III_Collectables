@@ -22,11 +22,13 @@ public class dropSystem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.tag == "Bullet")
         {
             health--;
             if (health == 0)
             {
+                Controls.explosion.Play();
                 Instantiate(lootDrops[randspawn], gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
@@ -34,6 +36,7 @@ public class dropSystem : MonoBehaviour
         }
         if (collision.gameObject.tag == "Superbullet")
         {
+            Controls.explosion.Play();
             Instantiate(lootDrops[randspawn], gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

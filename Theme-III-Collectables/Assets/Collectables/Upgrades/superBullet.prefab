@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6350535963641880046}
   - component: {fileID: 5356437745418384539}
   - component: {fileID: 825123603759581670}
-  - component: {fileID: 2483771777055130067}
+  - component: {fileID: 2629121764399736920}
   m_Layer: 0
   m_Name: superBullet
   m_TagString: Superbullet
@@ -171,7 +171,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
---- !u!114 &2483771777055130067
+--- !u!114 &2629121764399736920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,6 +180,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6278047903562063537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4101e2b2ebf7e49adba02c5ea573f3, type: 3}
+  m_Script: {fileID: 11500000, guid: aee58a86d2307d544b3e7879c015ccca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
