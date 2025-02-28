@@ -29,6 +29,11 @@ public class GasPipe : MonoBehaviour
             purchase.enabled = true;
             count = 5;
         }
+
+        if(Controls.incValue == 0.025f)
+        {
+            purchase.enabled = false;
+        }
     }
 
     public void Purchase()
@@ -37,8 +42,8 @@ public class GasPipe : MonoBehaviour
         soldOutText.SetActive(true);
         Controls.incValue = 0.025f;
         Controls.decValue = 0.1f;
-        purchase.enabled = false;
         purchaseText.text = "Purchased";
+        Controls.upgradeCount++;
 
     }
 }

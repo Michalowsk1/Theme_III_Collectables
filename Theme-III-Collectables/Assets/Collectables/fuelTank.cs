@@ -29,6 +29,11 @@ public class fuelTank : MonoBehaviour
             purchase.enabled = true;
             count = 5;
         }
+
+        if(Controls.horSpeed == 6)
+        {
+            purchase.enabled = false;
+        }
     }
 
     public void Purchase()
@@ -36,8 +41,8 @@ public class fuelTank : MonoBehaviour
         purchased.Play();
         soldOutText.SetActive(true);
         Controls.horSpeed = 6;
-        purchase.enabled = false;
         purchaseText.text = "Purchased";
+        Controls.upgradeCount++;
 
     }
 }

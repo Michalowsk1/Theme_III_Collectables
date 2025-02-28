@@ -18,6 +18,7 @@ public class Controls : MonoBehaviour
     [SerializeField] GameObject scoreTxt;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI finalScoreText;
+    [SerializeField] GameObject transition;
 
     [Header("Movement")]
     public static int horSpeed;
@@ -29,6 +30,7 @@ public class Controls : MonoBehaviour
     public bool isplaying;
     public bool canShoot = true;
     public static int upgrade = 0;
+    public static int upgradeCount;
 
     [Header("Overheating")]
     [SerializeField] GameObject FillBar;
@@ -50,6 +52,7 @@ public class Controls : MonoBehaviour
     void Start()
     {
         Ship = GetComponent<Rigidbody2D>();
+        transition.SetActive(false);
         gameOver.SetActive(false);
         score = 0;
         horSpeed = 4;
@@ -69,7 +72,7 @@ public class Controls : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         Ship.velocity = new Vector2(moveHorizontal * horSpeed, 0);
         //float moveVertical = Input.GetAxis("Vertical");
-        if (Input.GetKeyDown(KeyCode.E) && canShoot == true)
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot == true)
         {
             {
                 if (upgrade == 0)        //spawn normal bullet without upgrade
@@ -93,7 +96,10 @@ public class Controls : MonoBehaviour
         }
         else { }
             
-        
+        if(upgradeCount == 3)
+        {
+            transition.SetActive(true);
+        }
 
         
     }
@@ -103,7 +109,7 @@ public class Controls : MonoBehaviour
     {
         if (Time.timeScale == 1)
         {
-            if (Input.GetKeyDown(KeyCode.E) && canShoot == true)
+            if (Input.GetKeyDown(KeyCode.Space) && canShoot == true)
             {
                 FillBar.transform.localScale = new Vector3(FillBar.transform.localScale.x + incValue, FillBar.transform.localScale.y);
             }

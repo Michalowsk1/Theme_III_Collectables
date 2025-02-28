@@ -32,6 +32,10 @@ public class Screwdriver : MonoBehaviour
             purchase.enabled = true;
             count =5;
         }
+        if(Controls.upgrade == 1)
+        {
+            purchase.enabled = false;
+        }
     }
     public void Purchase()
     {
@@ -39,7 +43,7 @@ public class Screwdriver : MonoBehaviour
         soldOutText.SetActive(true);
         Item.SetActive(true);
         Controls.upgrade = 1;
-        purchase.enabled = false;
+        Controls.upgradeCount++;
         purchaseText.text = "Purchased";
 
     }
