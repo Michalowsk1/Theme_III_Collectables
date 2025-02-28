@@ -5,8 +5,11 @@ using UnityEngine;
 public class dropSystem : MonoBehaviour
 {
     [SerializeField] GameObject[] lootDrops;
+    [SerializeField] GameObject explosion;
+    public Transform spawn;
     int health = 2;
     int randspawn;
+    public Animation destroy;
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +31,21 @@ public class dropSystem : MonoBehaviour
             health--;
             if (health == 0)
             {
+                GameObject explosionClone = Instantiate(explosion, spawn.transform.position, Quaternion.identity);
                 Controls.explosion.Play();
                 Instantiate(lootDrops[randspawn], gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
+                Destroy(explosionClone, 1);
             }
 
         }
         if (collision.gameObject.tag == "Superbullet")
         {
+            GameObject explosionClone = Instantiate(explosion, spawn.transform.position, Quaternion.identity);
             Controls.explosion.Play();
             Instantiate(lootDrops[randspawn], gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(explosionClone, 1);
         }
 
         if (collision.gameObject.tag == "Remove")

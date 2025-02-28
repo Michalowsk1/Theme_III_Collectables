@@ -37,12 +37,14 @@ public class Controls : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource gunShot;
+    public AudioSource electricShot;
     public static AudioSource CollectItem;
     public  AudioSource pubCollectItem;
     public static AudioSource explosion;
     public  AudioSource pubExplosion;
     public AudioSource soundtrack;
     public AudioSource death;
+    public AudioSource overheated;
     
     //Start is called before the first frame update
     void Start()
@@ -79,7 +81,7 @@ public class Controls : MonoBehaviour
 
                 else if (upgrade == 1)  //spawns upgraded chargebullet if uprgaded
                 {
-                    gunShot.Play();
+                    electricShot.Play();
                     Instantiate(ChargeBullet, bulletSpawn.position, Quaternion.identity);
                 }
             }
@@ -108,6 +110,7 @@ public class Controls : MonoBehaviour
 
             if (FillBar.transform.localScale.x > 0.25f)
             {
+            overheated.Play();
             canShoot = false;
             StartCoroutine(decHeating());
         }
