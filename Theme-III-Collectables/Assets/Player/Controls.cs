@@ -15,10 +15,12 @@ public class Controls : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject ChargeBullet;
     [SerializeField] GameObject gameOver;
+    [SerializeField] GameObject gameOverCheckpoint;
     [SerializeField] GameObject scoreTxt;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] GameObject transition;
+    [SerializeField] GameObject meteorSpawner;
 
     [Header("Movement")]
     public static int horSpeed;
@@ -54,6 +56,8 @@ public class Controls : MonoBehaviour
         Ship = GetComponent<Rigidbody2D>();
         transition.SetActive(false);
         gameOver.SetActive(false);
+        gameOverCheckpoint.SetActive(false);
+        meteorSpawner.SetActive(true);
         score = 0;
         horSpeed = 4;
         isplaying = true;
@@ -99,6 +103,7 @@ public class Controls : MonoBehaviour
         if(upgradeCount == 3)
         {
             transition.SetActive(true);
+            meteorSpawner.SetActive(false);
         }
 
         
@@ -149,6 +154,16 @@ public class Controls : MonoBehaviour
             Time.timeScale = 0;
             death.Play();
             gameOver.SetActive(true);
+            finalScoreText.text = "Score:" + score.ToString();
+            scoreTxt.SetActive(false);
+            isplaying = false;
+        }
+
+        if (collision.gameObject.tag == "Meteor1" || collision.gameObject.tag == "BossProjectile")
+        {
+            Time.timeScale = 0;
+            death.Play();
+            gameOverCheckpoint.SetActive(true);
             finalScoreText.text = "Score:" + score.ToString();
             scoreTxt.SetActive(false);
             isplaying = false;

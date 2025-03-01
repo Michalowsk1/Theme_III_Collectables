@@ -26,7 +26,7 @@ public class dropSystem : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet" && Controls.upgradeCount != 3) //doesnt spawn loot when in boss fight
         {
             health--;
             if (health == 0)
@@ -39,7 +39,7 @@ public class dropSystem : MonoBehaviour
             }
 
         }
-        if (collision.gameObject.tag == "Superbullet")
+        if (collision.gameObject.tag == "Superbullet" && Controls.upgradeCount != 3)
         {
             GameObject explosionClone = Instantiate(explosion, spawn.transform.position, Quaternion.identity);
             Controls.explosion.Play();
