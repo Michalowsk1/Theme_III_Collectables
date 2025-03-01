@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 733579714912514302}
   - component: {fileID: 8704412514527360474}
   - component: {fileID: 1809703258490803547}
+  - component: {fileID: 5366226097455376148}
   m_Layer: 0
   m_Name: bossProj
   m_TagString: BossProjectile
@@ -170,3 +171,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5366226097455376148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327454484819200845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4101e2b2ebf7e49adba02c5ea573f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

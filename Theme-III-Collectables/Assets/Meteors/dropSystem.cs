@@ -7,7 +7,7 @@ public class dropSystem : MonoBehaviour
     [SerializeField] GameObject[] lootDrops;
     [SerializeField] GameObject explosion;
     public Transform spawn;
-    int health = 2;
+    int health;
     int randspawn;
     public Animation destroy;
 
@@ -25,7 +25,7 @@ public class dropSystem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        health = Random.Range(1, 3);
         if (collision.gameObject.tag == "Bullet" && Controls.upgradeCount != 3) //doesnt spawn loot when in boss fight
         {
             health--;

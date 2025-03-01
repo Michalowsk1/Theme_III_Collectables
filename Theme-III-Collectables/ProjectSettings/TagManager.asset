@@ -12,6 +12,8 @@ TagManager:
   - Gas
   - Screwdriver
   - BossProjectile
+  - Meteor1
+  - Boss
   layers:
   - Default
   - TransparentFX
