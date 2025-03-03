@@ -21,7 +21,6 @@ public class FinalScene : MonoBehaviour
         mainGame.SetActive(true);
         endScene.SetActive(false);
         endCutscene.SetActive(false);
-        bossDefeated = false;
     }
 
     // Update is called once per frame

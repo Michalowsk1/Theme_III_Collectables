@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 public class Controls : MonoBehaviour
 {
@@ -21,6 +20,10 @@ public class Controls : MonoBehaviour
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] GameObject transition;
     [SerializeField] GameObject meteorSpawner;
+    [SerializeField] GameObject batteryCharge1;
+    [SerializeField] GameObject batteryCharge2;
+    [SerializeField] GameObject batteryCharge3;
+    [SerializeField] GameObject batteryCharge4;
 
     [Header("Movement")]
     public static int horSpeed;
@@ -58,6 +61,10 @@ public class Controls : MonoBehaviour
         gameOver.SetActive(false);
         gameOverCheckpoint.SetActive(false);
         meteorSpawner.SetActive(true);
+        batteryCharge1.SetActive(false);
+        batteryCharge2.SetActive(false);
+        batteryCharge3.SetActive(false);
+        batteryCharge4.SetActive(false);
         score = 0;
         horSpeed = 4;
         isplaying = true;

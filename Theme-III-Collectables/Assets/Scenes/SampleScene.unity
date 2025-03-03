@@ -3451,7 +3451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &366850017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3993,7 +3993,6 @@ MonoBehaviour:
   - {fileID: 8402111825981514145, guid: e0aa83eb26267294fb834f868671542d, type: 3}
   - {fileID: 9057987844481611735, guid: 18080f5dfb9725e48917bd2399dd8e60, type: 3}
   Meteors1: []
-  endScene: {fileID: 0}
   loot: {fileID: 7108396506654770162, guid: 17beeec12d8f5b941b5e18f8a0a61863, type: 3}
   stage1: 0
   stage2: 0
@@ -4157,7 +4156,7 @@ GameObject:
   - component: {fileID: 498088285}
   - component: {fileID: 498088286}
   m_Layer: 0
-  m_Name: Timeline
+  m_Name: FinalTimeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4587,6 +4586,10 @@ MonoBehaviour:
   finalScoreText: {fileID: 926281308}
   transition: {fileID: 488013920}
   meteorSpawner: {fileID: 296972148}
+  batteryCharge1: {fileID: 769281164}
+  batteryCharge2: {fileID: 178268623}
+  batteryCharge3: {fileID: 693341228}
+  batteryCharge4: {fileID: 1202576648}
   bulletSpawn: {fileID: 722045358}
   canShoot: 1
   FillBar: {fileID: 368997072}
@@ -7668,7 +7671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1392961855
 Animator:
   serializedVersion: 5
@@ -7703,8 +7706,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 488013920}
-  gameOverText: {fileID: 0}
-  meteorSpawn: {fileID: 0}
+  gameOverText: {fileID: 1908475297}
+  meteorSpawn: {fileID: 296972148}
 --- !u!114 &1392961857
 MonoBehaviour:
   m_ObjectHideFlags: 0

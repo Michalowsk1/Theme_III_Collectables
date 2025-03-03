@@ -17,7 +17,7 @@ public class bossBattle : MonoBehaviour
     [SerializeField] GameObject EnemyShot;
     [SerializeField] GameObject[] Meteors;
     [SerializeField] GameObject[] Meteors1;
-    [SerializeField] GameObject endScene;
+    //[SerializeField] GameObject endScene;
     [SerializeField] GameObject loot;
     Vector2 MeteorSpawnExtra;
     Vector2 MeteorSpawnLeft;
@@ -59,7 +59,7 @@ public class bossBattle : MonoBehaviour
         }
 
 
-        if(LaserCharge.batteryLevel == 4)
+        if(LaserCharge.batteryLevel >= 4)
         {
             FinalScene.bossDefeated = true;
         }
@@ -70,7 +70,7 @@ public class bossBattle : MonoBehaviour
         spawntime++;
         if(stage1)
         {
-            if (spawntime >= 100)
+            if (spawntime >= 180)
             {
                 GameObject projectile = Instantiate(EnemyShot, stage1Spawn.position, Quaternion.identity);
                 spawntime = 0;
@@ -85,7 +85,7 @@ public class bossBattle : MonoBehaviour
 
         else if(stage2)
         {
-            if (spawntime >= 70)
+            if (spawntime >= 120)
             {
                 GameObject projectile = Instantiate(EnemyShot, stage1Spawn.position, Quaternion.identity);
                 spawntime = 0;
