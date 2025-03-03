@@ -29,7 +29,7 @@ public class Controls : MonoBehaviour
     public static int score;
     float timer;
     public Transform bulletSpawn;
-    public bool isplaying;
+    public static bool isplaying;
     public bool canShoot = true;
     public static int upgrade = 0;
     public static int upgradeCount;
@@ -167,6 +167,7 @@ public class Controls : MonoBehaviour
             finalScoreText.text = "Score:" + score.ToString();
             scoreTxt.SetActive(false);
             isplaying = false;
+            bossBattle.boss = false;
         }
 
         if (collision.gameObject.tag == "Screwdriver")
